@@ -1,0 +1,22 @@
+server:
+  port: 8079
+
+zuul:
+  prefix: /api
+  routes:
+    hello-server:
+      path: /server/**
+      serverId: HELLO-SERVER
+    hello-client:
+      path: /client/**
+      serverId: HELLO-CLIENT
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.43.54:8761/eureka
+  instance:
+    hostname: 192.168.43.54
+spring:
+  application:
+    name: zuul-service
